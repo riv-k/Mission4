@@ -31,7 +31,7 @@
   margin-right: 10px;
 }
 
-.refresh-logo{
+.refresh-logo {
   height: 25px;
   margin-left: auto;
   cursor: pointer;
@@ -79,9 +79,15 @@
   padding: 10px;
   border-top: 1px solid #ddd;
   display: flex;
-  align-items: center;  
+  align-items: center;
 
   gap: 10px;
 }
 
-
+.refresh-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-left: auto;
+}

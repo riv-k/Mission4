@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import styles from "./ChatMessages.module.css";
 
-function ChatMessages({ conversation }) {
+function ChatMessages({ conversation, loading }) {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -20,6 +20,7 @@ function ChatMessages({ conversation }) {
           {msg.message}
         </div>
       ))}
+      {loading && <div className={styles.loading}>Tina is typing...</div>}
       <div ref={messagesEndRef}></div>
     </div>
   );

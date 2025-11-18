@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 // Assets
 import tinaLogo from "./assets/tina.svg";
@@ -13,6 +14,9 @@ import UserInput from "./components/UserInput/UserInput.jsx";
 import "./App.css";
 
 function App() {
+  const apiUri = import.meta.env.VITE_API_URI;
+  const apiKey = import.meta.env.VITE_API_KEY;
+
   const initialMessage = {
     role: "aiTinaAssistant",
     message:
@@ -27,27 +31,40 @@ function App() {
   };
 
   const handleSend = async (input) => {
-    setConversation((prev) => [...prev, { role: "user", message: input }]);
+    // Build updated conversation
+    const updatedConversation = [
+      ...conversation,
+      { role: "user", message: input },
+    ];
+
+    // Update state
+    setConversation(updatedConversation);
 
     setLoading(true);
 
     // Simulate AI response delay - replace with actual API call
-    const aiResponse = await new Promise((resolve) =>
-      setTimeout(() => resolve("Tina thunked to hard..."), 1000)
+    const body = { conversation: updatedConversation };
+    const headers = {
+      headers: {
+        "x-api-key": apiKey,
+        "Content-Type": "application/json",
+      },
+    };
+
+    const aiResponse = await axios.post(
+      `${apiUri}/api/insurance/chat/`,
+      body,
+      headers
     );
+    console.log(aiResponse.data.reply);
 
     setConversation((prev) => [
       ...prev,
-      { role: "aiTinaAssistant", message: aiResponse },
+      { role: "aiTinaAssistant", message: aiResponse.data.reply },
     ]);
 
     setLoading(false);
   };
-  // Every time the user sends a message:
-  // setConversation(prev => [...prev, { role: "user", message: input }]);
-
-  // And when you get a response from AI:
-  // setConversation(prev => [...prev, { role: "aiTinaAssistant", message: aiResponse }]);
 
   return (
     <>

@@ -9,6 +9,7 @@ const sendMessage = async (req, res) => {
       return res.status(400).json({ error: "Invalid conversation format" });
     }
 
+    console.log("Received Conversation:", conversation);
     const prompt = buildInterviewPrompt(conversation);
     // console.log("Generated Prompt:", prompt);
 

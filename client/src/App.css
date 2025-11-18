@@ -1,6 +1,7 @@
 * {
   /* border: 2px solid red; */
 }
+
 .container {
   width: 500px;
   height: 70vh;
@@ -12,10 +13,10 @@
   padding: 0;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  /* border: 2px solid red; */
 }
 
 .header {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,14 +25,13 @@
   border-bottom: 1px solid #ddd;
 }
 
-.logo{
+.logo {
   width: 40px;
   height: 40px;
   margin-right: 10px;
 }
 
-.refresh-logo {
-  /* width: 30px; */
+.refresh-logo{
   height: 25px;
   margin-left: auto;
   cursor: pointer;
@@ -64,3 +64,24 @@
   margin-right: 5px;
   border: 1px solid #ccc;
 }
+
+.conversation-display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+.user-input {
+  flex: 0 0 auto;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  align-items: center;  
+
+  gap: 10px;
+}
+
+

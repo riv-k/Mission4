@@ -1,0 +1,21 @@
+.input-box {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.send-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.send-button img {
+  height: 25px;
+  margin-left: auto;
+  cursor: pointer;
+}

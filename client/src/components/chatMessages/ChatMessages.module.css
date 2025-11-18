@@ -1,0 +1,33 @@
+.chatArea {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.userMessage {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.tinaMessage {
+  align-self: flex-start;
+  background-color: #e0e0e0;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.loading {
+  align-self: flex-start;
+  font-style: italic;
+  color: #555;
+}

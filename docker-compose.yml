@@ -3,7 +3,7 @@ services:
     build: ./server
     container_name: mission4_server
     ports:
-      - "5000:3000"
+      - "3000:3000"
     environment:
       - API_KEY=${API_KEY}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
@@ -12,6 +12,6 @@ services:
     build: ./client
     container_name: mission4_client
     ports:
-      - "3000:80"
+      - "4000:80"
     depends_on:
       - server
